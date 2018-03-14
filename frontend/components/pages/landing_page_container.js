@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { requestBatchQuotes } from '../actions/stock_actions';
+import { requestBatchQuotes } from '../../actions/stock_actions';
 import LandingPage from './landing_page';
 
 const mapStateToProps = (state) => (

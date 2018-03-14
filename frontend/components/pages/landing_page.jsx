@@ -1,6 +1,8 @@
 import React from 'react';
 import { DotLoader } from 'react-spinners';
 
+import CurrentPrice from '../modules/current_price';
+
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
@@ -25,9 +27,15 @@ class LandingPage extends React.Component {
         </div>
       );
     } else {
+      const batchQuotes = this.props.stockQuotes.map((quote, idx) => {
+        return (
+          <CurrentPrice key={ idx } quote={ quote }/>
+        );
+      });
+
       return (
         <div>
-
+          { batchQuotes }
         </div>
       );
     }
