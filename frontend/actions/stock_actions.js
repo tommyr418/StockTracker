@@ -1,16 +1,16 @@
 import * as StockAPIUtil from '../util/stock_api_util';
 
-export const RECEIVE_BLOCK_QUOTE = 'RECEIVE_BLOCK_QUOTE';
+export const RECEIVE_BLOCK_QUOTES = 'RECEIVE_BLOCK_QUOTES';
 
-export const receiveBlockQuote = data => (
+export const receiveBlockQuotes = data => (
   {
-    type: RECEIVE_BLOCK_QUOTE,
+    type: RECEIVE_BLOCK_QUOTES,
     data,
   }
 );
 
 export const requestBatchQuotes = () => dispatch => (
   StockAPIUtil.requestBatchQuotes().then(
-    (data) => dispatch(receiveBlockQuote(data))
+    (data) => dispatch(receiveBlockQuotes(data))
   )
 );
