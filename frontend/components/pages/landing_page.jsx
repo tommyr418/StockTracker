@@ -22,7 +22,7 @@ class LandingPage extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <div>
+        <div className='loader'>
           <DotLoader color='#cccccc'/>
         </div>
       );
@@ -34,7 +34,7 @@ class LandingPage extends React.Component {
       });
 
       return (
-        <div>
+        <div className='landing-page'>
           { batchQuotes }
         </div>
       );

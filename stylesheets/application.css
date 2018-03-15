@@ -1,13 +1,60 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 body {
+  height: 100%;
   font-family: arial;
+}
+
+.loader {
+  position: fixed;
+  right: 50vw;
+  top: 40vh;
 }
 
 .side-nav-container {
   background: #2C3E46;
   color: #ffffff;
+  float: left;
+  height: 120vh;
+  width: 20%;
 }
 
-img {
-  height: 12vw;
-  width: 12vw;
+.landing-page {
+  padding: 25px 0;
+  background-color: #fafafa;
+}
+
+.current-price {
+  height: 120px;
+  margin-left: 22vw;
+  margin-right: 2vw;
+  margin-bottom: 25px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 4px 4px 10px -1px rgba(166,161,166,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-price:last-of-type {
+  margin-bottom: 0;
+}
+
+.current-price img {
+  height: 100px;
+  width: 100px;
+  margin: 0 10px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.current-price-info {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

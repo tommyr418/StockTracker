@@ -8,11 +8,24 @@ const LOGO_MAP = {
   'AMZN': 'amazon_logo.jpg',
 };
 
+const COMPANY_MAP = {
+  'MSFT': 'Microsoft',
+  'FB': 'Facebook',
+  'AAPL': 'Apple',
+  'GOOGL': 'Google',
+  'AMZN': 'Amazon',
+};
+
 const CurrentPrice = ({ quote }) => {
   return (
-    <div>
+    <div className='current-price'>
       <img src={`images/${LOGO_MAP[quote['1. symbol']]}`}/>
-      <span>{ quote['2. price'] }</span>
+      <div className='current-price-info'>
+        <span> Company: { COMPANY_MAP[quote['1. symbol']] } </span>
+        <span> Symbol: { quote['1. symbol'] } </span>
+        <span> Price: { quote['2. price'] } USD </span>
+        <span> Last Updated: { quote['4. timestamp'] } </span>
+      </div>
     </div>
   );
 };

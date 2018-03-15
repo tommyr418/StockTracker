@@ -7,7 +7,8 @@ import MainSideNav from './modules/main_side_nav';
 const App = () => (
   <div>
     <Route path='/' component={ MainSideNav }/>
-    <LandingPageContainer />
+    <Route path='/quick-quotes' component={ LandingPageContainer }/>
+    <Route exact path='/' component={ LandingPageContainer }/>
   </div>
 );
 
