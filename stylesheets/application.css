@@ -1,11 +1,19 @@
 html {
-  min-height: 100%;
-  position: relative;
+  height: 100%;
 }
 
 body {
   height: 100%;
   font-family: arial;
+}
+
+#root {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+  display: flex;
 }
 
 .loader {
@@ -17,19 +25,20 @@ body {
 .side-nav-container {
   background: #2C3E46;
   color: #ffffff;
-  float: left;
-  height: 120vh;
+  height: 100%;
   width: 20%;
 }
 
 .landing-page {
+  width: 80%;
   padding: 25px 0;
   background-color: #fafafa;
+  overflow: scroll;
 }
 
 .current-price {
   height: 120px;
-  margin-left: 22vw;
+  margin-left: 2vw;
   margin-right: 2vw;
   margin-bottom: 25px;
   background-color: #ffffff;
