@@ -16,6 +16,7 @@ class CompanyPage extends React.Component {
     this.state = {
       loading: true,
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,14 @@ class CompanyPage extends React.Component {
         });
       }
     );
+  }
+
+  handleClick(e) {
+    this.setState({
+      details: this.props.timeSeriesDaily[e.x],
+      date: e.x,
+      highlight: e.y,
+    });
   }
 
   render() {
@@ -63,20 +72,65 @@ class CompanyPage extends React.Component {
     return (
       <div className='company-page'>
         <label> Prices for the Last 10 Trade Days</label>
-        <LineChart
-          axes
-          dataPoints
-          axisLabels={ {x: 'Date', y: 'Price (USD)'} }
-          interpolate={'cardinal'}
-          width={ 750 }
-          height={ 400 }
-          xType={'text'}
-          grid
-          data={[
-            graphPriceData,
-            graphHighData,
-            graphLowData
-          ]}/>
+        <div className='chart-container'>
+          <LineChart
+            axes
+            dataPoints
+            interpolate={'cardinal'}
+            width={ 750 }
+            height={ 400 }
+            xType={'text'}
+            lineColors={ ['black', 'green', 'red'] }
+            grid
+            clickHandler={ this.handleClick }
+            data={[
+              graphPriceData,
+              graphHighData,
+              graphLowData
+            ]}/>
+
+            <div className='key'>
+              <label>Key</label>
+              <span>X-axis: Date</span>
+              <span>Y-axis: Price(USD)</span>
+              <br></br>
+              <div>
+                <i className="fas fa-square-full"
+                  style={{color: 'black'}}></i>
+                <span>Opening Price</span>
+              </div>
+              <br></br>
+              <div>
+                <i className="fas fa-square-full"
+                  style={{color: 'green'}}></i>
+                <span>Daily High</span>
+              </div>
+              <br></br>
+              <div>
+                <i className="fas fa-square-full"
+                  style={{color: 'red'}}></i>
+                <span>Daily Low</span>
+              </div>
+            </div>
+        </div>
+
+        { this.state.details ?
+          <div className='details'>
+            <span>Date: {this.state.date} </span>
+            <span className={
+                this.state.details['1. open'] == this.state.highlight ?
+                'highlight' : ''}
+              >Opening Price: {this.state.details['1. open']} USD</span>
+            <span className={
+                this.state.details['2. high'] == this.state.highlight ?
+                'highlight' : ''}>
+                Daily High: {this.state.details['2. high']} USD</span>
+            <span className={
+                this.state.details['3. low'] == this.state.highlight ?
+                'highlight' : ''}>
+                Daily Low: {this.state.details['3. low']} USD</span>
+            <span>Volume: {this.state.details['5. volume']}</span>
+          </div> : null }
       </div>
     );
   }
