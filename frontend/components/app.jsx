@@ -11,6 +11,10 @@ const App = () => (
     <Route exact path='/' component={ LandingPageContainer }/>
     <Route path='/quick-quotes' component={ LandingPageContainer }/>
     <Route path='/microsoft' component={ CompanyPageContainer }/>
+    <Route path='/facebook' component={ CompanyPageContainer }/>
+    <Route path='/apple' component={ CompanyPageContainer }/>
+    <Route path='/google' component={ CompanyPageContainer }/>
+    <Route path='/amazon' component={ CompanyPageContainer }/>
   </div>
 );
 

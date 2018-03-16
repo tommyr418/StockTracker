@@ -1,5 +1,6 @@
 import React from 'react';
 import { DotLoader } from 'react-spinners';
+import { LineChart } from 'react-easy-chart';
 
 const SYMBOL_MAP = {
   'microsoft': 'MSFT',
@@ -36,13 +37,48 @@ class CompanyPage extends React.Component {
           <DotLoader color='#cccccc'/>
         </div>
       );
-    } else {
-      return (
-        <div className='company-page'>
-
-        </div>
-      );
     }
+
+    const dataArray = Object.keys(this.props.timeSeriesDaily)
+    .slice(0, 10).reverse();
+
+    const graphPriceData = dataArray.map((date) => {
+      return (
+        { x: date, y: Number(this.props.timeSeriesDaily[date]['1. open']) }
+      );
+    });
+
+    const graphHighData = dataArray.map((date) => {
+      return (
+        { x: date, y: Number(this.props.timeSeriesDaily[date]['2. high']) }
+      );
+    });
+
+    const graphLowData = dataArray.map((date) => {
+      return (
+        { x: date, y: Number(this.props.timeSeriesDaily[date]['3. low']) }
+      );
+    });
+
+    return (
+      <div className='company-page'>
+        <label> Prices for the Last 10 Trade Days</label>
+        <LineChart
+          axes
+          dataPoints
+          axisLabels={ {x: 'Date', y: 'Price (USD)'} }
+          interpolate={'cardinal'}
+          width={ 750 }
+          height={ 400 }
+          xType={'text'}
+          grid
+          data={[
+            graphPriceData,
+            graphHighData,
+            graphLowData
+          ]}/>
+      </div>
+    );
   }
 }
 

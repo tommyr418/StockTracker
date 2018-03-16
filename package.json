@@ -25,6 +25,7 @@
     "babel-preset-react": "^6.24.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-easy-chart": "^1.0.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-sidenav": "^2.1.2",
