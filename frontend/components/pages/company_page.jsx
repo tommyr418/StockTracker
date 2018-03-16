@@ -12,14 +12,17 @@ const SYMBOL_MAP = {
 
 class CompanyPage extends React.Component {
   constructor(props) {
-    super(props);
+    super(props);;
     this.state = {
       loading: true,
+      windowWidth: (window.innerWidth * 0.8) - 150,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
     this.props.requestDailyPrices(
       SYMBOL_MAP[this.props.location.pathname.slice(1)]
     ).then(
@@ -29,6 +32,14 @@ class CompanyPage extends React.Component {
         });
       }
     );
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    this.setState({windowWidth: (window.innerWidth * 0.8) - 150});
   }
 
   handleClick(e) {
@@ -77,8 +88,8 @@ class CompanyPage extends React.Component {
             axes
             dataPoints
             interpolate={'cardinal'}
-            width={ 750 }
-            height={ 400 }
+            width={ this.state.windowWidth }
+            height={ this.state.windowWidth / 2 }
             xType={'text'}
             lineColors={ ['black', 'green', 'red'] }
             grid
