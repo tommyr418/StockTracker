@@ -28,6 +28,22 @@ body {
   color: #ffffff;
   height: 100%;
   width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: scroll;
+}
+
+#my-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100px;
+}
+
+#my-links a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .landing-page {

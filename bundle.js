@@ -273,7 +273,7 @@ exports.default = CurrentPrice;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -287,69 +287,122 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var SideNav = (0, _reactSidenav.withRR4)();
 
 var MainSideNav = function MainSideNav(props) {
-    return _react2.default.createElement(
-        'div',
-        { className: 'side-nav-container' },
+  return _react2.default.createElement(
+    'div',
+    { className: 'side-nav-container' },
+    _react2.default.createElement(
+      SideNav,
+      { highlightColor: '#ffffff', highlightBgColor: '#01bcd4',
+        defaultSelected: props.location.pathname === '/' ? 'quick-quotes' : props.location.pathname.slice(1) },
+      _react2.default.createElement(
+        _reactSidenav.Nav,
+        { id: 'quick-quotes' },
         _react2.default.createElement(
-            SideNav,
-            { highlightColor: '#ffffff', highlightBgColor: '#01bcd4',
-                defaultSelected: props.location.pathname === '/' ? 'quick-quotes' : props.location.pathname.slice(1) },
-            _react2.default.createElement(
-                _reactSidenav.Nav,
-                { id: 'quick-quotes' },
-                _react2.default.createElement(
-                    _reactSidenav.NavText,
-                    null,
-                    ' Quick Quotes '
-                )
-            ),
-            _react2.default.createElement(
-                _reactSidenav.Nav,
-                { id: 'microsoft' },
-                _react2.default.createElement(
-                    _reactSidenav.NavText,
-                    null,
-                    ' Microsoft '
-                )
-            ),
-            _react2.default.createElement(
-                _reactSidenav.Nav,
-                { id: 'facebook' },
-                _react2.default.createElement(
-                    _reactSidenav.NavText,
-                    null,
-                    ' Facebook '
-                )
-            ),
-            _react2.default.createElement(
-                _reactSidenav.Nav,
-                { id: 'apple' },
-                _react2.default.createElement(
-                    _reactSidenav.NavText,
-                    null,
-                    ' Apple '
-                )
-            ),
-            _react2.default.createElement(
-                _reactSidenav.Nav,
-                { id: 'google' },
-                _react2.default.createElement(
-                    _reactSidenav.NavText,
-                    null,
-                    ' Google '
-                )
-            ),
-            _react2.default.createElement(
-                _reactSidenav.Nav,
-                { id: 'amazon' },
-                _react2.default.createElement(
-                    _reactSidenav.NavText,
-                    null,
-                    ' Amazon '
-                )
-            )
+          _reactSidenav.NavText,
+          null,
+          ' Quick Quotes '
         )
-    );
+      ),
+      _react2.default.createElement(
+        _reactSidenav.Nav,
+        { id: 'microsoft' },
+        _react2.default.createElement(
+          _reactSidenav.NavText,
+          null,
+          ' Microsoft '
+        )
+      ),
+      _react2.default.createElement(
+        _reactSidenav.Nav,
+        { id: 'facebook' },
+        _react2.default.createElement(
+          _reactSidenav.NavText,
+          null,
+          ' Facebook '
+        )
+      ),
+      _react2.default.createElement(
+        _reactSidenav.Nav,
+        { id: 'apple' },
+        _react2.default.createElement(
+          _reactSidenav.NavText,
+          null,
+          ' Apple '
+        )
+      ),
+      _react2.default.createElement(
+        _reactSidenav.Nav,
+        { id: 'google' },
+        _react2.default.createElement(
+          _reactSidenav.NavText,
+          null,
+          ' Google '
+        )
+      ),
+      _react2.default.createElement(
+        _reactSidenav.Nav,
+        { id: 'amazon' },
+        _react2.default.createElement(
+          _reactSidenav.NavText,
+          null,
+          ' Amazon '
+        )
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { id: 'my-links' },
+      _react2.default.createElement(
+        'span',
+        null,
+        'Tommy Ren'
+      ),
+      _react2.default.createElement(
+        'a',
+        { href: 'https://github.com/tommyr418',
+          target: '_blank' },
+        _react2.default.createElement('i', { className: 'fab fa-github', 'aria-hidden': 'true' }),
+        _react2.default.createElement(
+          'span',
+          { className: 'label' },
+          'GitHub'
+        )
+      ),
+      _react2.default.createElement(
+        'a',
+        { href: 'https://www.linkedin.com/in/mengling-tommy-ren-967647152/',
+          target: '_blank' },
+        _react2.default.createElement('i', { className: 'fab fa-linkedin', 'aria-hidden': 'true' }),
+        _react2.default.createElement(
+          'span',
+          { className: 'label' },
+          'LinkedIn'
+        )
+      ),
+      _react2.default.createElement(
+        'a',
+        { href: 'https://angel.co/mengling-tommy-ren?public_profile=1',
+          target: '_blank' },
+        _react2.default.createElement('i', { className: 'fab fa-angellist', 'aria-hidden': 'true' }),
+        _react2.default.createElement(
+          'span',
+          { className: 'label' },
+          'AngelList'
+        )
+      ),
+      _react2.default.createElement(
+        'a',
+        { href: 'http://tommyren.me',
+          target: '_blank' },
+        _react2.default.createElement('i', { 'class': 'fa fa-globe', 'aria-hidden': 'true' }),
+        _react2.default.createElement(
+          'span',
+          { className: 'label' },
+          'Portfolio'
+        )
+      )
+    )
+  );
 };
 
 exports.default = MainSideNav;
@@ -30571,7 +30624,7 @@ var dependencies = {"d3-array":"1.2.1","d3-axis":"1.0.8","d3-brush":"1.0.4","d3-
 /*!**********************************!*\
   !*** ./node_modules/d3/index.js ***!
   \**********************************/
-/*! exports provided: version, bisect, bisectRight, bisectLeft, ascending, bisector, cross, descending, deviation, extent, histogram, thresholdFreedmanDiaconis, thresholdScott, thresholdSturges, max, mean, median, merge, min, pairs, permute, quantile, range, scan, shuffle, sum, ticks, tickIncrement, tickStep, transpose, variance, zip, axisTop, axisRight, axisBottom, axisLeft, brush, brushX, brushY, brushSelection, chord, ribbon, nest, set, map, keys, values, entries, color, rgb, hsl, lab, hcl, cubehelix, dispatch, drag, dragDisable, dragEnable, dsvFormat, csvParse, csvParseRows, csvFormat, csvFormatRows, tsvParse, tsvParseRows, tsvFormat, tsvFormatRows, easeLinear, easeQuad, easeQuadIn, easeQuadOut, easeQuadInOut, easeCubic, easeCubicIn, easeCubicOut, easeCubicInOut, easePoly, easePolyIn, easePolyOut, easePolyInOut, easeSin, easeSinIn, easeSinOut, easeSinInOut, easeExp, easeExpIn, easeExpOut, easeExpInOut, easeCircle, easeCircleIn, easeCircleOut, easeCircleInOut, easeBounce, easeBounceIn, easeBounceOut, easeBounceInOut, easeBack, easeBackIn, easeBackOut, easeBackInOut, easeElastic, easeElasticIn, easeElasticOut, easeElasticInOut, forceCenter, forceCollide, forceLink, forceManyBody, forceRadial, forceSimulation, forceX, forceY, formatDefaultLocale, format, formatPrefix, formatLocale, formatSpecifier, precisionFixed, precisionPrefix, precisionRound, geoArea, geoBounds, geoCentroid, geoCircle, geoClipAntimeridian, geoClipCircle, geoClipExtent, geoClipRectangle, geoContains, geoDistance, geoGraticule, geoGraticule10, geoInterpolate, geoLength, geoPath, geoAlbers, geoAlbersUsa, geoAzimuthalEqualArea, geoAzimuthalEqualAreaRaw, geoAzimuthalEquidistant, geoAzimuthalEquidistantRaw, geoConicConformal, geoConicConformalRaw, geoConicEqualArea, geoConicEqualAreaRaw, geoConicEquidistant, geoConicEquidistantRaw, geoEquirectangular, geoEquirectangularRaw, geoGnomonic, geoGnomonicRaw, geoIdentity, geoProjection, geoProjectionMutator, geoMercator, geoMercatorRaw, geoNaturalEarth1, geoNaturalEarth1Raw, geoOrthographic, geoOrthographicRaw, geoStereographic, geoStereographicRaw, geoTransverseMercator, geoTransverseMercatorRaw, geoRotation, geoStream, geoTransform, cluster, hierarchy, pack, packSiblings, packEnclose, partition, stratify, tree, treemap, treemapBinary, treemapDice, treemapSlice, treemapSliceDice, treemapSquarify, treemapResquarify, interpolate, interpolateArray, interpolateBasis, interpolateBasisClosed, interpolateDate, interpolateNumber, interpolateObject, interpolateRound, interpolateString, interpolateTransformCss, interpolateTransformSvg, interpolateZoom, interpolateRgb, interpolateRgbBasis, interpolateRgbBasisClosed, interpolateHsl, interpolateHslLong, interpolateLab, interpolateHcl, interpolateHclLong, interpolateCubehelix, interpolateCubehelixLong, quantize, path, polygonArea, polygonCentroid, polygonHull, polygonContains, polygonLength, quadtree, queue, randomUniform, randomNormal, randomLogNormal, randomBates, randomIrwinHall, randomExponential, request, html, json, text, xml, csv, tsv, scaleBand, scalePoint, scaleIdentity, scaleLinear, scaleLog, scaleOrdinal, scaleImplicit, scalePow, scaleSqrt, scaleQuantile, scaleQuantize, scaleThreshold, scaleTime, scaleUtc, schemeCategory10, schemeCategory20b, schemeCategory20c, schemeCategory20, interpolateCubehelixDefault, interpolateRainbow, interpolateWarm, interpolateCool, interpolateViridis, interpolateMagma, interpolateInferno, interpolatePlasma, scaleSequential, create, creator, local, matcher, mouse, namespace, namespaces, clientPoint, select, selectAll, selection, selector, selectorAll, style, touch, touches, window, event, customEvent, arc, area, line, pie, areaRadial, radialArea, lineRadial, radialLine, pointRadial, linkHorizontal, linkVertical, linkRadial, symbol, symbols, symbolCircle, symbolCross, symbolDiamond, symbolSquare, symbolStar, symbolTriangle, symbolWye, curveBasisClosed, curveBasisOpen, curveBasis, curveBundle, curveCardinalClosed, curveCardinalOpen, curveCardinal, curveCatmullRomClosed, curveCatmullRomOpen, curveCatmullRom, curveLinearClosed, curveLinear, curveMonotoneX, curveMonotoneY, curveNatural, curveStep, curveStepAfter, curveStepBefore, stack, stackOffsetExpand, stackOffsetDiverging, stackOffsetNone, stackOffsetSilhouette, stackOffsetWiggle, stackOrderAscending, stackOrderDescending, stackOrderInsideOut, stackOrderNone, stackOrderReverse, timeInterval, timeMillisecond, timeMilliseconds, utcMillisecond, utcMilliseconds, timeSecond, timeSeconds, utcSecond, utcSeconds, timeMinute, timeMinutes, timeHour, timeHours, timeDay, timeDays, timeWeek, timeWeeks, timeSunday, timeSundays, timeMonday, timeMondays, timeTuesday, timeTuesdays, timeWednesday, timeWednesdays, timeThursday, timeThursdays, timeFriday, timeFridays, timeSaturday, timeSaturdays, timeMonth, timeMonths, timeYear, timeYears, utcMinute, utcMinutes, utcHour, utcHours, utcDay, utcDays, utcWeek, utcWeeks, utcSunday, utcSundays, utcMonday, utcMondays, utcTuesday, utcTuesdays, utcWednesday, utcWednesdays, utcThursday, utcThursdays, utcFriday, utcFridays, utcSaturday, utcSaturdays, utcMonth, utcMonths, utcYear, utcYears, timeFormatDefaultLocale, timeFormat, timeParse, utcFormat, utcParse, timeFormatLocale, isoFormat, isoParse, now, timer, timerFlush, timeout, interval, transition, active, interrupt, voronoi, zoom, zoomTransform, zoomIdentity */
+/*! exports provided: version, bisect, bisectRight, bisectLeft, ascending, bisector, cross, descending, deviation, extent, histogram, thresholdFreedmanDiaconis, thresholdScott, thresholdSturges, max, mean, median, merge, min, pairs, permute, quantile, range, scan, shuffle, sum, ticks, tickIncrement, tickStep, transpose, variance, zip, scaleBand, scalePoint, scaleIdentity, scaleLinear, scaleLog, scaleOrdinal, scaleImplicit, scalePow, scaleSqrt, scaleQuantile, scaleQuantize, scaleThreshold, scaleTime, scaleUtc, schemeCategory10, schemeCategory20b, schemeCategory20c, schemeCategory20, interpolateCubehelixDefault, interpolateRainbow, interpolateWarm, interpolateCool, interpolateViridis, interpolateMagma, interpolateInferno, interpolatePlasma, scaleSequential, timeFormatDefaultLocale, timeFormat, timeParse, utcFormat, utcParse, timeFormatLocale, isoFormat, isoParse, axisTop, axisRight, axisBottom, axisLeft, brush, brushX, brushY, brushSelection, chord, ribbon, nest, set, map, keys, values, entries, color, rgb, hsl, lab, hcl, cubehelix, dispatch, drag, dragDisable, dragEnable, dsvFormat, csvParse, csvParseRows, csvFormat, csvFormatRows, tsvParse, tsvParseRows, tsvFormat, tsvFormatRows, easeLinear, easeQuad, easeQuadIn, easeQuadOut, easeQuadInOut, easeCubic, easeCubicIn, easeCubicOut, easeCubicInOut, easePoly, easePolyIn, easePolyOut, easePolyInOut, easeSin, easeSinIn, easeSinOut, easeSinInOut, easeExp, easeExpIn, easeExpOut, easeExpInOut, easeCircle, easeCircleIn, easeCircleOut, easeCircleInOut, easeBounce, easeBounceIn, easeBounceOut, easeBounceInOut, easeBack, easeBackIn, easeBackOut, easeBackInOut, easeElastic, easeElasticIn, easeElasticOut, easeElasticInOut, forceCenter, forceCollide, forceLink, forceManyBody, forceRadial, forceSimulation, forceX, forceY, formatDefaultLocale, format, formatPrefix, formatLocale, formatSpecifier, precisionFixed, precisionPrefix, precisionRound, geoArea, geoBounds, geoCentroid, geoCircle, geoClipAntimeridian, geoClipCircle, geoClipExtent, geoClipRectangle, geoContains, geoDistance, geoGraticule, geoGraticule10, geoInterpolate, geoLength, geoPath, geoAlbers, geoAlbersUsa, geoAzimuthalEqualArea, geoAzimuthalEqualAreaRaw, geoAzimuthalEquidistant, geoAzimuthalEquidistantRaw, geoConicConformal, geoConicConformalRaw, geoConicEqualArea, geoConicEqualAreaRaw, geoConicEquidistant, geoConicEquidistantRaw, geoEquirectangular, geoEquirectangularRaw, geoGnomonic, geoGnomonicRaw, geoIdentity, geoProjection, geoProjectionMutator, geoMercator, geoMercatorRaw, geoNaturalEarth1, geoNaturalEarth1Raw, geoOrthographic, geoOrthographicRaw, geoStereographic, geoStereographicRaw, geoTransverseMercator, geoTransverseMercatorRaw, geoRotation, geoStream, geoTransform, cluster, hierarchy, pack, packSiblings, packEnclose, partition, stratify, tree, treemap, treemapBinary, treemapDice, treemapSlice, treemapSliceDice, treemapSquarify, treemapResquarify, interpolate, interpolateArray, interpolateBasis, interpolateBasisClosed, interpolateDate, interpolateNumber, interpolateObject, interpolateRound, interpolateString, interpolateTransformCss, interpolateTransformSvg, interpolateZoom, interpolateRgb, interpolateRgbBasis, interpolateRgbBasisClosed, interpolateHsl, interpolateHslLong, interpolateLab, interpolateHcl, interpolateHclLong, interpolateCubehelix, interpolateCubehelixLong, quantize, path, polygonArea, polygonCentroid, polygonHull, polygonContains, polygonLength, quadtree, queue, randomUniform, randomNormal, randomLogNormal, randomBates, randomIrwinHall, randomExponential, request, html, json, text, xml, csv, tsv, create, creator, local, matcher, mouse, namespace, namespaces, clientPoint, select, selectAll, selection, selector, selectorAll, style, touch, touches, window, event, customEvent, arc, area, line, pie, areaRadial, radialArea, lineRadial, radialLine, pointRadial, linkHorizontal, linkVertical, linkRadial, symbol, symbols, symbolCircle, symbolCross, symbolDiamond, symbolSquare, symbolStar, symbolTriangle, symbolWye, curveBasisClosed, curveBasisOpen, curveBasis, curveBundle, curveCardinalClosed, curveCardinalOpen, curveCardinal, curveCatmullRomClosed, curveCatmullRomOpen, curveCatmullRom, curveLinearClosed, curveLinear, curveMonotoneX, curveMonotoneY, curveNatural, curveStep, curveStepAfter, curveStepBefore, stack, stackOffsetExpand, stackOffsetDiverging, stackOffsetNone, stackOffsetSilhouette, stackOffsetWiggle, stackOrderAscending, stackOrderDescending, stackOrderInsideOut, stackOrderNone, stackOrderReverse, timeInterval, timeMillisecond, timeMilliseconds, utcMillisecond, utcMilliseconds, timeSecond, timeSeconds, utcSecond, utcSeconds, timeMinute, timeMinutes, timeHour, timeHours, timeDay, timeDays, timeWeek, timeWeeks, timeSunday, timeSundays, timeMonday, timeMondays, timeTuesday, timeTuesdays, timeWednesday, timeWednesdays, timeThursday, timeThursdays, timeFriday, timeFridays, timeSaturday, timeSaturdays, timeMonth, timeMonths, timeYear, timeYears, utcMinute, utcMinutes, utcHour, utcHours, utcDay, utcDays, utcWeek, utcWeeks, utcSunday, utcSundays, utcMonday, utcMondays, utcTuesday, utcTuesdays, utcWednesday, utcWednesdays, utcThursday, utcThursdays, utcFriday, utcFridays, utcSaturday, utcSaturdays, utcMonth, utcMonths, utcYear, utcYears, now, timer, timerFlush, timeout, interval, transition, active, interrupt, voronoi, zoom, zoomTransform, zoomIdentity */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
