@@ -2,16 +2,18 @@
 
 StockTracker is a app that tracks the prices for 5 of the largest tech companies. Included stocks are: Microsoft, Facebook, Apple, Google and Amazon.
 
+[Live link](http://tommyren.me/StockTracker/)
+
 # Technologies
 
--React.JS
--HTML5
--CSS
+- React.JS
+- HTML5
+- CSS
 
 Public packages used:
--react-spinners
--react-side-nav
--react-easy-chart
+- react-spinners
+- react-side-nav
+- react-easy-chart
 
 # API
 
