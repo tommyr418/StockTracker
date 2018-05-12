@@ -35,6 +35,7 @@ export const requestBatchQuotes = () => dispatch => (
 
 export const requestDailyPrices = (symbol) => dispatch => (
   StockAPIUtil.requestDailyPrices(symbol).then(
-    (data) => dispatch(receiveDailyPrices(data))
+    (data) => dispatch(receiveDailyPrices(data)),
+    (errors) => dispatch(receiveQuoteErrors(errors))
   )
 );

@@ -6,6 +6,7 @@ import CompanyPage from './company_page';
 const mapStateToProps = (state) => (
   {
     timeSeriesDaily: state.entities['Time Series (Daily)'],
+    errors: state.errors,
   }
 );
 

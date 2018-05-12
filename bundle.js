@@ -131,6 +131,8 @@ var requestDailyPrices = exports.requestDailyPrices = function requestDailyPrice
   return function (dispatch) {
     return StockAPIUtil.requestDailyPrices(symbol).then(function (data) {
       return dispatch(receiveDailyPrices(data));
+    }, function (errors) {
+      return dispatch(receiveQuoteErrors(errors));
     });
   };
 };
@@ -467,7 +469,6 @@ var CompanyPage = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (CompanyPage.__proto__ || Object.getPrototypeOf(CompanyPage)).call(this, props));
 
-    ;
     _this.state = {
       loading: true,
       windowWidth: window.innerWidth * 0.8 - 150
@@ -519,140 +520,156 @@ var CompanyPage = function (_React$Component) {
           { className: 'loader' },
           _react2.default.createElement(_reactSpinners.DotLoader, { color: '#cccccc' })
         );
-      }
-
-      var dataArray = Object.keys(this.props.timeSeriesDaily).slice(0, 10).reverse();
-
-      var graphPriceData = dataArray.map(function (date) {
-        return { x: date, y: Number(_this3.props.timeSeriesDaily[date]['1. open']) };
-      });
-
-      var graphHighData = dataArray.map(function (date) {
-        return { x: date, y: Number(_this3.props.timeSeriesDaily[date]['2. high']) };
-      });
-
-      var graphLowData = dataArray.map(function (date) {
-        return { x: date, y: Number(_this3.props.timeSeriesDaily[date]['3. low']) };
-      });
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'company-page' },
-        _react2.default.createElement(
-          'label',
-          null,
-          ' Prices for the Last 10 Trade Days'
-        ),
-        _react2.default.createElement(
+      } else if (this.props.errors) {
+        return _react2.default.createElement(
           'div',
-          { className: 'chart-container' },
-          _react2.default.createElement(_reactEasyChart.LineChart, {
-            axes: true,
-            dataPoints: true,
-            interpolate: 'cardinal',
-            width: this.state.windowWidth,
-            height: this.state.windowWidth / 2,
-            xType: 'text',
-            lineColors: ['black', 'green', 'red'],
-            grid: true,
-            clickHandler: this.handleClick,
-            data: [graphPriceData, graphHighData, graphLowData] }),
+          { className: 'error' },
+          _react2.default.createElement(
+            'span',
+            null,
+            ' It seems the API is not available. '
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            ' Please wait a while and revisit. '
+          )
+        );
+      } else {
+
+        var dataArray = Object.keys(this.props.timeSeriesDaily).slice(0, 10).reverse();
+
+        var graphPriceData = dataArray.map(function (date) {
+          return { x: date, y: Number(_this3.props.timeSeriesDaily[date]['1. open']) };
+        });
+
+        var graphHighData = dataArray.map(function (date) {
+          return { x: date, y: Number(_this3.props.timeSeriesDaily[date]['2. high']) };
+        });
+
+        var graphLowData = dataArray.map(function (date) {
+          return { x: date, y: Number(_this3.props.timeSeriesDaily[date]['3. low']) };
+        });
+
+        return _react2.default.createElement(
+          'div',
+          { className: 'company-page' },
+          _react2.default.createElement(
+            'label',
+            null,
+            ' Prices for the Last 10 Trade Days'
+          ),
           _react2.default.createElement(
             'div',
-            { className: 'key' },
-            _react2.default.createElement(
-              'label',
-              null,
-              'Key'
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              'X-axis: Date'
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              'Y-axis: Price(USD)'
-            ),
-            _react2.default.createElement('br', null),
+            { className: 'chart-container' },
+            _react2.default.createElement(_reactEasyChart.LineChart, {
+              axes: true,
+              dataPoints: true,
+              interpolate: 'cardinal',
+              width: this.state.windowWidth,
+              height: this.state.windowWidth / 2,
+              xType: 'text',
+              lineColors: ['black', 'green', 'red'],
+              grid: true,
+              clickHandler: this.handleClick,
+              data: [graphPriceData, graphHighData, graphLowData] }),
             _react2.default.createElement(
               'div',
-              null,
-              _react2.default.createElement('i', { className: 'fas fa-square-full',
-                style: { color: 'black' } }),
+              { className: 'key' },
+              _react2.default.createElement(
+                'label',
+                null,
+                'Key'
+              ),
               _react2.default.createElement(
                 'span',
                 null,
-                'Opening Price'
-              )
-            ),
-            _react2.default.createElement('br', null),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement('i', { className: 'fas fa-square-full',
-                style: { color: 'green' } }),
+                'X-axis: Date'
+              ),
               _react2.default.createElement(
                 'span',
                 null,
-                'Daily High'
-              )
-            ),
-            _react2.default.createElement('br', null),
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement('i', { className: 'fas fa-square-full',
-                style: { color: 'red' } }),
+                'Y-axis: Price(USD)'
+              ),
+              _react2.default.createElement('br', null),
               _react2.default.createElement(
-                'span',
+                'div',
                 null,
-                'Daily Low'
+                _react2.default.createElement('i', { className: 'fas fa-square-full',
+                  style: { color: 'black' } }),
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  'Opening Price'
+                )
+              ),
+              _react2.default.createElement('br', null),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('i', { className: 'fas fa-square-full',
+                  style: { color: 'green' } }),
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  'Daily High'
+                )
+              ),
+              _react2.default.createElement('br', null),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('i', { className: 'fas fa-square-full',
+                  style: { color: 'red' } }),
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  'Daily Low'
+                )
               )
             )
-          )
-        ),
-        this.state.details ? _react2.default.createElement(
-          'div',
-          { className: 'details' },
-          _react2.default.createElement(
-            'span',
-            null,
-            'Date: ',
-            this.state.date,
-            ' '
           ),
-          _react2.default.createElement(
-            'span',
-            { className: this.state.details['1. open'] == this.state.highlight ? 'highlight' : ''
-            },
-            'Opening Price: ',
-            this.state.details['1. open'],
-            ' USD'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: this.state.details['2. high'] == this.state.highlight ? 'highlight' : '' },
-            'Daily High: ',
-            this.state.details['2. high'],
-            ' USD'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: this.state.details['3. low'] == this.state.highlight ? 'highlight' : '' },
-            'Daily Low: ',
-            this.state.details['3. low'],
-            ' USD'
-          ),
-          _react2.default.createElement(
-            'span',
-            null,
-            'Volume: ',
-            this.state.details['5. volume']
-          )
-        ) : null
-      );
+          this.state.details ? _react2.default.createElement(
+            'div',
+            { className: 'details' },
+            _react2.default.createElement(
+              'span',
+              null,
+              'Date: ',
+              this.state.date,
+              ' '
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: this.state.details['1. open'] == this.state.highlight ? 'highlight' : ''
+              },
+              'Opening Price: ',
+              this.state.details['1. open'],
+              ' USD'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: this.state.details['2. high'] == this.state.highlight ? 'highlight' : '' },
+              'Daily High: ',
+              this.state.details['2. high'],
+              ' USD'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: this.state.details['3. low'] == this.state.highlight ? 'highlight' : '' },
+              'Daily Low: ',
+              this.state.details['3. low'],
+              ' USD'
+            ),
+            _react2.default.createElement(
+              'span',
+              null,
+              'Volume: ',
+              this.state.details['5. volume']
+            )
+          ) : null
+        );
+      }
     }
   }]);
 
@@ -689,7 +706,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    timeSeriesDaily: state.entities['Time Series (Daily)']
+    timeSeriesDaily: state.entities['Time Series (Daily)'],
+    errors: state.errors
   };
 };
 
