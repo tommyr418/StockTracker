@@ -6,6 +6,7 @@ import LandingPage from './landing_page';
 const mapStateToProps = (state) => (
   {
     stockQuotes: state.entities['Stock Quotes'],
+    errors: state.errors,
   }
 );
 

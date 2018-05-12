@@ -2,6 +2,7 @@ import * as StockAPIUtil from '../util/stock_api_util';
 
 export const RECEIVE_BLOCK_QUOTES = 'RECEIVE_BLOCK_QUOTES';
 export const RECEIVE_DAILY_PRICES = 'RECEIVE_DAILY_PRICES';
+export const RECEIVE_QUOTE_ERRORS = 'RECEIVE_QUOTE_ERRORS';
 
 export const receiveBlockQuotes = data => (
   {
@@ -17,10 +18,18 @@ export const receiveDailyPrices = data => (
   }
 );
 
+export const receiveQuoteErrors = errors => (
+  {
+    type: RECEIVE_QUOTE_ERRORS,
+    errors,
+  }
+);
+
 
 export const requestBatchQuotes = () => dispatch => (
   StockAPIUtil.requestBatchQuotes().then(
-    (data) => dispatch(receiveBlockQuotes(data))
+    (data) => dispatch(receiveBlockQuotes(data)),
+    (errors) => dispatch(receiveQuoteErrors(errors))
   )
 );
 

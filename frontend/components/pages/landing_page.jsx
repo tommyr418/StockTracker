@@ -26,7 +26,12 @@ class LandingPage extends React.Component {
           <DotLoader color='#cccccc'/>
         </div>
       );
+    } else if (this.props.errors) {
+      return (
+        <div>Error loading data.</div>
+      );
     } else {
+      debugger
       const batchQuotes = this.props.stockQuotes.map((quote, idx) => {
         return (
           <CurrentPrice key={ idx } quote={ quote }/>
