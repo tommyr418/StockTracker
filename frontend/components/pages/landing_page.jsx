@@ -28,10 +28,12 @@ class LandingPage extends React.Component {
       );
     } else if (this.props.errors) {
       return (
-        <div>Error loading data.</div>
+        <div className='error'>
+          <span> It seems the API is not available. </span> 
+          <span> Please wait a while and revisit. </span>
+        </div>
       );
     } else {
-      debugger
       const batchQuotes = this.props.stockQuotes.map((quote, idx) => {
         return (
           <CurrentPrice key={ idx } quote={ quote }/>

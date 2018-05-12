@@ -776,11 +776,19 @@ var LandingPage = function (_React$Component) {
       } else if (this.props.errors) {
         return _react2.default.createElement(
           'div',
-          null,
-          'Error loading data.'
+          { className: 'error' },
+          _react2.default.createElement(
+            'span',
+            null,
+            ' It seems the API is not available. '
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            ' Please wait a while and revisit. '
+          )
         );
       } else {
-        debugger;
         var batchQuotes = this.props.stockQuotes.map(function (quote, idx) {
           return _react2.default.createElement(_current_price2.default, { key: idx, quote: quote });
         });
