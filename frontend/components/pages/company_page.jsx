@@ -57,7 +57,7 @@ class CompanyPage extends React.Component {
           <DotLoader color='#cccccc'/>
         </div>
       );
-    } else if (this.props.errors) {
+    } else if (Object.keys(this.props.errors).length !== 0) {
       return (
         <div className='error'>
           <span> It seems the API is not available. </span>

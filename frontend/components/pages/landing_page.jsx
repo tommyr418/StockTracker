@@ -26,10 +26,10 @@ class LandingPage extends React.Component {
           <DotLoader color='#cccccc'/>
         </div>
       );
-    } else if (this.props.errors) {
+    } else if (Object.keys(this.props.errors).length !== 0) {
       return (
         <div className='error'>
-          <span> It seems the API is not available. </span> 
+          <span> It seems the API is not available. </span>
           <span> Please wait a while and revisit. </span>
         </div>
       );

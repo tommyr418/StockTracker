@@ -520,7 +520,7 @@ var CompanyPage = function (_React$Component) {
           { className: 'loader' },
           _react2.default.createElement(_reactSpinners.DotLoader, { color: '#cccccc' })
         );
-      } else if (this.props.errors) {
+      } else if (Object.keys(this.props.errors).length !== 0) {
         return _react2.default.createElement(
           'div',
           { className: 'error' },
@@ -791,7 +791,7 @@ var LandingPage = function (_React$Component) {
           { className: 'loader' },
           _react2.default.createElement(_reactSpinners.DotLoader, { color: '#cccccc' })
         );
-      } else if (this.props.errors) {
+      } else if (Object.keys(this.props.errors).length !== 0) {
         return _react2.default.createElement(
           'div',
           { className: 'error' },
