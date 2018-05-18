@@ -235,10 +235,11 @@ var CurrentPrice = function CurrentPrice(_ref) {
 
   return _react2.default.createElement(
     _reactRouterDom.Link,
-    { to: '/' + COMPANY_MAP[quote['1. symbol']].toLowerCase() },
+    { to: '/' + COMPANY_MAP[quote['1. symbol']].toLowerCase(),
+      className: 'current-price' },
     _react2.default.createElement(
       'div',
-      { className: 'current-price' },
+      { className: 'current-price-wrapper' },
       _react2.default.createElement('img', { src: 'images/' + LOGO_MAP[quote['1. symbol']] }),
       _react2.default.createElement(
         'div',

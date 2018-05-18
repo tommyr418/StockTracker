@@ -19,8 +19,9 @@ const COMPANY_MAP = {
 
 const CurrentPrice = ({ quote }) => {
   return (
-    <Link to={ `/${ COMPANY_MAP[quote['1. symbol']].toLowerCase() }` }>
-      <div className='current-price'>
+    <Link to={ `/${ COMPANY_MAP[quote['1. symbol']].toLowerCase() }` }
+      className='current-price'>
+      <div className='current-price-wrapper'>
         <img src={`images/${LOGO_MAP[quote['1. symbol']]}`}/>
         <div className='current-price-info'>
           <span> Company: { COMPANY_MAP[quote['1. symbol']] } </span>
