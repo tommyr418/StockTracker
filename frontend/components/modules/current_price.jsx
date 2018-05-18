@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const LOGO_MAP = {
   'MSFT': 'microsoft_logo.jpg',
@@ -18,15 +19,17 @@ const COMPANY_MAP = {
 
 const CurrentPrice = ({ quote }) => {
   return (
-    <div className='current-price'>
-      <img src={`images/${LOGO_MAP[quote['1. symbol']]}`}/>
-      <div className='current-price-info'>
-        <span> Company: { COMPANY_MAP[quote['1. symbol']] } </span>
-        <span> Symbol: { quote['1. symbol'] } </span>
-        <span> Price: { quote['2. price'] } USD </span>
-        <span> Last Updated: { quote['4. timestamp'] } </span>
+    <Link to={ `/${ COMPANY_MAP[quote['1. symbol']].toLowerCase() }` }>
+      <div className='current-price'>
+        <img src={`images/${LOGO_MAP[quote['1. symbol']]}`}/>
+        <div className='current-price-info'>
+          <span> Company: { COMPANY_MAP[quote['1. symbol']] } </span>
+          <span> Symbol: { quote['1. symbol'] } </span>
+          <span> Price: { quote['2. price'] } USD </span>
+          <span> Last Updated: { quote['4. timestamp'] } </span>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
