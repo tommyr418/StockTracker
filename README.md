@@ -29,6 +29,8 @@ https://www.alphavantage.co/
 
 3. Designed modularly so that the pages use the same components.
 
+![demo](https://user-images.githubusercontent.com/29281456/43402025-a7bc3b08-93df-11e8-8c5e-2044b5376f33.gif)
+
 # Possible Improvements
 
 1. Link to a even more detailed page that outlines price per hour.
