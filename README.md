@@ -2,7 +2,7 @@
 
 StockTracker is a app that tracks the prices for 5 of the largest tech companies. Included stocks are: Microsoft, Facebook, Apple, Google and Amazon. Users are able to check the opening price, daily high and daily low.
 
-[Live link](http://tommyren.me/StockTracker/)
+[Live link](http://tommyren.site/StockTracker/)
 
 # Technologies
 
